@@ -34,8 +34,8 @@ dir_path = os.getcwd()
 # CONFIG
 FITS_DIR = config['FitsImageViewer']['FITS_DIR']
 FITS_FILE_NAME = config['FitsImageViewer']['FITS_FILE_NAME']
-DIST_DIR = dir_path + config['FitsImageViewer']['DIST_DIR']
-OUTPUT_FILE_NAME = dir_path + config['FitsImageViewer']['OUTPUT_FILE_NAME']
+DIST_DIR = dir_path + '/' + config['FitsImageViewer']['DIST_DIR']
+OUTPUT_FILE_NAME = config['FitsImageViewer']['OUTPUT_FILE_NAME']
 
 import cv2
 import shutil
