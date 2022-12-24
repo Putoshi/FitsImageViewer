@@ -1,4 +1,7 @@
-dist
-venv
-__pycache__
+.DS_Store
+.idea/
+__pycache__/
+dist/
+venv/
+
 config.ini
