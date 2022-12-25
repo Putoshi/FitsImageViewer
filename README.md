@@ -22,6 +22,7 @@ OUTPUT_FILE_NAME = fits.jpg
 
 [SCRAGING]
 URL = http://xxxx
+REGISTER_ID = abc@gmail.com
 ```
 
 ### 2. Change virtual Python execution environment
