@@ -7,6 +7,8 @@ An application that converts FITS format data often used in astronomical data an
 - numpy
 - absl
 - Sequence
+- beautifulsoup4
+- selenium
 
 ## Setup
 
@@ -17,6 +19,9 @@ FITS_DIR = ${FITS_DATA_LOCATION}
 FITS_FILE_NAME = ${FITS_FILE_NAME}
 DIST_DIR = dist/
 OUTPUT_FILE_NAME = fits.jpg
+
+[SCRAGING]
+URL = http://xxxx
 ```
 
 ### 2. Change virtual Python execution environment
