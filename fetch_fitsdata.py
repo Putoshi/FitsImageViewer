@@ -2,6 +2,10 @@
 # -*- coding: UTF-8 -*-
 
 import time
+from absl import app
+from absl import flags
+from absl import logging
+
 # 設定ファイル
 import configparser
 
@@ -13,6 +17,14 @@ config.read('config.ini', encoding='utf-8')
 
 URL = config['SCRAGING']['URL']
 REGISTER_ID = config['SCRAGING']['REGISTER_ID']
+REQUEST_HEAD = config['SCRAGING']['REQUEST_HEAD']
+FREQ = config['SCRAGING']['FREQ']
+
+
+_REQUEST_CMD = flags.DEFINE_string(
+    name='request_cmd',
+    default=None,
+    help='The path of the TF2 saved model to use.')
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -30,17 +42,28 @@ driver.get(URL)
 
 time.sleep(1)
 
+# 認証周り
 msg = driver.find_element(By.ID, "ExportCheckMsg")
 input = driver.find_element(By.ID, "ExportNotify")
 input.send_keys(REGISTER_ID, Keys.ENTER)
-# dropdown.click()
-print(msg.text)
+# print(msg.text)
 
+
+# dropdown.click()
+
+# Request
+request_set = driver.find_element(By.ID, "ExportRecordSet")
+request_set.send_keys(REQUEST_HEAD + "[" + "][" + "]", Keys.ENTER)
 
 select_elm = driver.find_element(By.ID, "ExportMethod")
 select = Select(select_elm)
+
+
 #セレクトタグのオプションをインデックス番号から選択する
-select.select_by_index(len(select.options)-1)
+# select.select_by_index(len(select.options)-1)
+select.select_by_index(1)
+
+
 
 time.sleep(3)
 
@@ -53,3 +76,5 @@ driver.quit()
 
 #ExportCheckMsg
 # ExportNotify
+# ExportRecordSet
+
